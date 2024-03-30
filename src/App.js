@@ -1,15 +1,24 @@
 
 import './App.css';
-import Steps from './components/Steps';
-import StepsControl from './components/StepsControl';
+import Stepper from './components/Stepper';
+import BasicInformation from './components/form-steps/BasicInformation';
+import Ocupation from './components/form-steps/Ocupation';
+import PersonalDetails from './components/form-steps/PersonalDetails';
+
+
 
 function App() {
+  const stepsList = [<BasicInformation/>, <PersonalDetails/>, <Ocupation/>]
   return (
     <div className="main-container">
-      <div className='steps-holder'>
-        <Steps/>
-        <StepsControl/>
+      <div className='formStep-wrapper'>
+        
+            <Stepper stepsList= {stepsList}/>
+
+        
       </div>
+      
+      
     </div>
   );
 }

@@ -1,0 +1,137 @@
+.main-container{
+   width: 100vw;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: bisque;
+}
+
+.formStep-wrapper{
+    
+    padding: 20px;
+    width: 600px;
+    height: 450px;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px #00000078;
+}
+.stepper{
+    // background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    gap: 15px;
+}
+.steps-container{
+    position: relative;
+    .steps{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .step{
+            background-color: gray;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            z-index: 10;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .active{
+            background-color: skyblue;
+        }
+    }
+    .progressLine{
+        height: 2px;
+        background-color: skyblue;
+        width:0;
+        position: absolute;
+        top: 50%;
+        transition: all 0.3s ease-in-out;
+        z-index: 1;
+        
+    }
+    .progressLineGray{
+        height: 2px;
+        background-color: gray;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+    }
+}
+.eachForm{
+    background-color: burlywood;
+    flex-grow: 1;
+}
+
+
+
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .back, .next{
+        padding: 10px 20px;
+        outline: none;
+        background-color: gray;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: 0.2s ease;
+    }
+    .back:hover,.next:hover{
+        background-color: skyblue;
+    }
+    .back:active,.next:active{
+        background-color: rgb(30, 184, 245);
+        
+    }
+}
+
+
+.basicInf-Container{
+  
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    // border: 1px solid blue;
+    height: 100%;
+    align-items: center;
+}
+.basicInf-Container form{
+    padding: 20px;
+    position: relative;
+    width:80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    input{
+        outline: none;
+        border-radius: 4px;
+        border: none;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    button{
+        outline: none;
+        border-radius: 4px;
+        border: none;
+        padding: 10px 15px;
+        width: fit-content;
+        position: absolute;
+        right: 20px;
+        bottom: 0;
+        cursor: pointer;
+    }
+    button:active{
+        background-color: skyblue;
+    }
+}
