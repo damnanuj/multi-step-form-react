@@ -1,14 +1,16 @@
 
 import './App.css';
+import Profile from './components/Profile';
 import Stepper from './components/Stepper';
 import BasicInformation from './components/form-steps/BasicInformation';
-import Ocupation from './components/form-steps/Ocupation';
+import EducationDetails from './components/form-steps/EducationDetails';
+
 import PersonalDetails from './components/form-steps/PersonalDetails';
 
 
 
 function App() {
-  const stepsList = [<BasicInformation/>, <PersonalDetails/>, <Ocupation/>]
+  const stepsList = [<BasicInformation/>, <PersonalDetails/>, <EducationDetails/>]
   return (
     <div className="main-container">
       <div className='formStep-wrapper'>
