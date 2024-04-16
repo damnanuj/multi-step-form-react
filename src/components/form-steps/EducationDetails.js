@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
-const EducationDetails = () => {
+const EducationDetails = ({onSave}) => {
     const [course, setCourse] = useState('');
     const [branch, setBranch] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log('Form submitted:', { course, branch });
+        onSave({ course, branch });
     };
   return (
     <div className='education-container'>

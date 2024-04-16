@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
-const PersonalDetails = () => {
+const PersonalDetails = ({onSave}) => {
     const [dob, setDob] = useState('');
     const [gender, setGender] = useState('');
   
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log('Form submitted:', { dob, gender });
+        onSave({ dob, gender });
     };
   return (
     <div className='personalDetails-container'>
