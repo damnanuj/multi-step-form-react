@@ -9,7 +9,7 @@ const BasicInformation = ({onSave}) => {
   const [emailValid, setEmailValid] = useState(true);
 
   useEffect(() => {
-    // Check if both name and email are valid
+    // Checking name and email are valid or not
     const isNameValid = name.trim() !== '';
     const isEmailValid = /\S+@\S+\.\S+/.test(email);
     setNameValid(isNameValid);
