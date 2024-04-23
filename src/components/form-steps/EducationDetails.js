@@ -36,7 +36,7 @@ const EducationDetails = ({onSave}) => {
   return (
     <div className='education-container'>
         {
-            educationSaved ? (<p>Basic Information Saved successfully!</p>) : (
+            educationSaved ? (<p>Education Details Saved successfully!</p>) : (
       <>
       <h3>Course and Branch Selection Form</h3>
             <form onSubmit={handleSubmit}>
