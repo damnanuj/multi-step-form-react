@@ -1,15 +1,43 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const EducationDetails = ({onSave}) => {
     const [course, setCourse] = useState('');
     const [branch, setBranch] = useState('');
+    const [formValid, setFormValid] = useState(false);
+    const [courseValid, setCourseValid] = useState(true)
+    const [branchValid, setBranchValid] = useState(true)
+    const [educationSaved, setEducationSaved] = useState(false);
+    
+
+
+
+    useEffect(() => {
+        // course validation
+        const isCourseValid = course !== '';
+        setCourseValid(isCourseValid)
+  
+        //branch validation
+        const isBranchValid = branch !== '';
+        setBranchValid(isBranchValid)
+  
+        // formis valid or not
+        const isFormValid = isCourseValid && isBranchValid;
+        setFormValid(isFormValid);
+        
+      }, [course, branch]);
+
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        setEducationSaved(true)
         onSave({ course, branch });
     };
   return (
     <div className='education-container'>
+        {
+            educationSaved ? (<p>Basic Information Saved successfully!</p>) : (
+      <>
       <h3>Course and Branch Selection Form</h3>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="course">Select Course:</label>
@@ -20,7 +48,7 @@ const EducationDetails = ({onSave}) => {
                     <option value="arts">Arts</option>
                 </select>
 
-                <label htmlFor="branch">Select Branch:</label>
+                <label htmlFor="branch" >Select Branch:</label>
                 <select id="branch" name="branch" value={branch} onChange={(e) => setBranch(e.target.value)} required>
                     <option value="">Select</option>
                     {course === 'engineering' && (
@@ -46,8 +74,14 @@ const EducationDetails = ({onSave}) => {
                     )}
                 </select>
 
-                <button type='submit'>Save</button>
+                <button type='submit'
+                    disabled={!formValid} 
+                    style={{ backgroundColor: formValid ? 'skyblue' : 'gray' }}
+                >Save</button>
             </form>
+      </>
+      )
+    }
     </div>
   )
 }

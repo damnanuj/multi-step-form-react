@@ -21,22 +21,19 @@ function App() {
   useEffect(() => {
     console.log(userData);
   }, [userData]);
-  const stepsList = [<BasicInformation onSave={saveUserData}/>, 
+  
+  const stepsList = [
+                      <BasicInformation onSave={saveUserData}/>, 
                       <PersonalDetails onSave={saveUserData}/>, 
                       <EducationDetails onSave={saveUserData}/>
                     ]
 
   return (
-    <div className="main-container">
-      <div className='formStep-wrapper'>
-        
-            <Stepper stepsList= {stepsList}/>
-
-        
+      <div className="main-container">
+          <div className='formStep-wrapper'>
+                <Stepper stepsList= {stepsList}/>
+          </div>
       </div>
-      
-      
-    </div>
   );
 }
 

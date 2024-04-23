@@ -3,10 +3,10 @@ import React, {useEffect, useState } from 'react';
 const BasicInformation = ({onSave}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [basicSaved, setBasicSaved] = useState(false);
-  const [formValid, setFormValid] = useState(false);
   const [nameValid, setNameValid] = useState(true);
   const [emailValid, setEmailValid] = useState(true);
+  const [formValid, setFormValid] = useState(false);
+  const [basicSaved, setBasicSaved] = useState(false);
 
   useEffect(() => {
     // Checking name and email are valid or not
@@ -26,10 +26,12 @@ const BasicInformation = ({onSave}) => {
 
   return (
     <div className='basicInf-Container'>
-      <h3>Basic Details</h3>
+      
       {basicSaved ? (
         <p>Basic Information Saved successfully!</p>
       ) : (
+        <>
+          <h3>Basic Details</h3>
         <form onSubmit={handleSubmit}>
           <label>Name:</label>
           <input 
@@ -49,11 +51,13 @@ const BasicInformation = ({onSave}) => {
             required
             className={!emailValid ? 'invalid' : ''}
           />
-           <button type="submit" disabled={!formValid} 
-            style={{ backgroundColor: formValid ? 'green' : 'red' }}>
+           <button type="submit" 
+            disabled={!formValid} 
+            style={{ backgroundColor: formValid ? 'skyblue' : 'gray' }}>
               Save
           </button>
         </form>
+        </>
       )}
     </div>
   );
